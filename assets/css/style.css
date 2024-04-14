@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../../images/bg-desktop-light.jpg);
+    background-size: 100% 40vh;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    align-items: center;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: hsl(0, 0%, 98%);
+    font-size: 18px;
+}
+
+.container {
+    max-width: fit-content;
+}
+
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.todo-header h1 {
+    color: white;
+    letter-spacing: 10px;
+}
+
+.todo-header img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.add-todo {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.add-todo input {
+    border: none;
+    width: 75%;
+    height: 100%;
+    font-size: large;
+}
+
+.add-todo input:focus {
+    outline: none;
+}
+
+.add-todo button {
+    transition: 0.5s;
+    border: none;
+    color: white;
+    font-size: large;
+    width: 22%;
+    padding: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(to left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+.add-todo button:hover {
+    background: linear-gradient(to right, hsl(240, 100%, 67%), hsl(120, 87%, 65%));
+
+}
+
+.todo-list {
+    overflow: hidden;
+    background-color: white;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: 1px 1px 65px -11px rgba(0, 0, 0, 0.72);
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding-block: 20px;
+    border-bottom: 1px solid black;
+}
+
+.todo-item p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    height: 100%;
+    font-size: large;
+    margin: 0;
+    margin-left: 20px;
+}
+
+.todo-item p input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+    accent-color: hsl(280, 87%, 65%);
+    margin-right: 10px;
+}
+
+.todo-item button {
+    border: none;
+    color: white;
+    font-size: large;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: transparent;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    cursor: pointer;
+    color: hsl(280, 87%, 65%);
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+.todo-item .last {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+
+}
+
+.todo-item button:hover {
+    color: hsl(120, 87%, 65%)
+}
+
+.properities {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 20px;
+}
+
+.properities button {
+    border: none;
+    background-color: transparent;
+    color: hsl(233, 14%, 35%);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.properities p {
+    font-size: 13px;
+    color: hsl(233, 14%, 35%);
+    font-weight: bold;
+
+}
+
+.attribution {
+    margin-top: 50px;
+}
+
+.min-filter {
+    display: none;
+}
+
+@media (max-width: 586px) {
+    body {
+        background-image: url(../../images/bg-mobile-light.jpg);
+    }
+
+    .todo-header {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .properities .filter {
+        display: none;
+    }
+
+    .min-filter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        background-color: white;
+        padding: 20px;
+        box-shadow: 1px 1px 65px -11px rgba(0, 0, 0, 0.72);
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+    .min-filter button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        color: hsl(233, 14%, 35%);
+
+    }
+    .add-todo input {
+        width: 70%;
+    }
+
+}
