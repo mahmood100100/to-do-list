@@ -1,18 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
-
+:root {
+    --body-bg-color : hsl(0, 0%, 98%);
+    --body-bg-light-color :hsl(0, 0%, 98%);
+    --items-bg-color : white;
+    --items-bg-light-color : white;
+    --items-bg-dark-color :hsl(235, 24%, 19%);
+    --body-bg-dark-color : hsl(235, 21%, 11%);
+    --items-color : hsl(233, 14%, 35%);
+    --items-dark-color :hsl(233, 14%, 35%);
+    --items-light-color :hsl(234, 39%, 85%);
+    --body-image-theme :url(../../images/bg-desktop-light.jpg);
+    --body-image-light-theme :url(../../images/bg-desktop-light.jpg);
+    --body-image-dark-theme :url(../../images/bg-desktop-dark.jpg);
+    --body-min-image-theme :url(../../images/bg-mobile-light.jpg);
+    --body-min-image-light-theme :url(../../images/bg-mobile-light.jpg);
+    --body-min-image-dark-theme :url(../../images/bg-mobile-dark.jpg);
+}
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url(../../images/bg-desktop-light.jpg);
+    background-image: var(--body-image-theme);
     background-size: 100% 40vh;
     background-position: center top;
     background-repeat: no-repeat;
     background-attachment: fixed;
     align-items: center;
     font-family: 'Josefin Sans', sans-serif;
-    background-color: hsl(0, 0%, 98%);
+    background-color: var(--body-bg-color);
     font-size: 18px;
 }
 
@@ -40,7 +56,7 @@ body {
 }
 
 .add-todo {
-    background-color: white;
+    background-color: var(--items-bg-color);
     padding: 15px;
     margin-bottom: 25px;
     border-radius: 10px;
@@ -54,7 +70,13 @@ body {
     border: none;
     width: 75%;
     height: 100%;
-    font-size: large;
+    font-size: medium;
+    background-color: var(--items-bg-color);
+    color: var(--items-color);
+
+}
+.add-todo input::placeholder {
+    color: var(--items-color);
 }
 
 .add-todo input:focus {
@@ -88,7 +110,7 @@ body {
 
 .todo-list {
     overflow: hidden;
-    background-color: white;
+    background-color: var(--items-bg-color);
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -101,9 +123,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    background-color: var(--items-bg-color);
     padding-block: 20px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--items-color);
 }
 
 .todo-item p {
@@ -115,6 +137,7 @@ body {
     font-size: large;
     margin: 0;
     margin-left: 20px;
+    color: var(--items-color);
 }
 
 .todo-item p input[type="checkbox"] {
@@ -126,7 +149,7 @@ body {
 
 .todo-item button {
     border: none;
-    color: white;
+    color: var(--items-color);
     font-size: large;
     padding: 5px;
     border-radius: 10px;
@@ -166,20 +189,21 @@ body {
 .properities button {
     border: none;
     background-color: transparent;
-    color: hsl(233, 14%, 35%);
+    color: var(--items-color);
     font-weight: bold;
     cursor: pointer;
 }
 
 .properities p {
     font-size: 13px;
-    color: hsl(233, 14%, 35%);
+    color: var(--items-color);
     font-weight: bold;
 
 }
 
-.attribution {
+.attribution , .attribution a {
     margin-top: 50px;
+    color: var(--items-color);
 }
 
 .min-filter {
@@ -188,7 +212,7 @@ body {
 
 @media (max-width: 586px) {
     body {
-        background-image: url(../../images/bg-mobile-light.jpg);
+        background-image: var(--body-min-image-theme);
     }
 
     .todo-header {
@@ -205,7 +229,7 @@ body {
         justify-content: center;
         align-items: center;
         margin-top: 30px;
-        background-color: white;
+        background-color: var(--items-bg-color);
         padding: 20px;
         box-shadow: 1px 1px 65px -11px rgba(0, 0, 0, 0.72);
         border-radius: 10px;
@@ -219,7 +243,7 @@ body {
         border: none;
         cursor: pointer;
         font-weight: bold;
-        color: hsl(233, 14%, 35%);
+        color: var(--items-color);
 
     }
     .add-todo input {
