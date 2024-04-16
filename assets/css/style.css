@@ -1,21 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 :root {
     --body-bg-color : hsl(0, 0%, 98%);
-    --body-bg-light-color :hsl(0, 0%, 98%);
     --items-bg-color : white;
-    --items-bg-light-color : white;
-    --items-bg-dark-color :hsl(235, 24%, 19%);
-    --body-bg-dark-color : hsl(235, 21%, 11%);
     --items-color : hsl(233, 14%, 35%);
-    --items-dark-color :hsl(233, 14%, 35%);
-    --items-light-color :hsl(234, 39%, 85%);
     --body-image-theme :url(../../images/bg-desktop-light.jpg);
-    --body-image-light-theme :url(../../images/bg-desktop-light.jpg);
-    --body-image-dark-theme :url(../../images/bg-desktop-dark.jpg);
     --body-min-image-theme :url(../../images/bg-mobile-light.jpg);
-    --body-min-image-light-theme :url(../../images/bg-mobile-light.jpg);
-    --body-min-image-dark-theme :url(../../images/bg-mobile-dark.jpg);
 }
+
+.dark-theme {
+    --body-bg-color: hsl(235, 21%, 11%);
+    --items-bg-color: hsl(235, 24%, 19%);
+    --items-color: hsl(234, 39%, 85%);
+    --body-image-theme: url(../../images/bg-desktop-dark.jpg);
+    --body-min-image-theme: url(../../images/bg-mobile-dark.jpg);
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -120,17 +119,17 @@ body {
 }
 
 .todo-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: var(--items-bg-color);
     padding-block: 20px;
     border-bottom: 1px solid var(--items-color);
 }
-
-.todo-item p {
+.todo-item .task-name {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.todo-item .task-name p {
+    display: flex;
     align-items: center;
     border: none;
     height: 100%;
@@ -138,6 +137,12 @@ body {
     margin: 0;
     margin-left: 20px;
     color: var(--items-color);
+}
+
+.task-desc p {
+    color: var(--items-color);
+    overflow: hidden;
+    margin-inline: 60px;
 }
 
 .todo-item p input[type="checkbox"] {
@@ -192,6 +197,15 @@ body {
     color: var(--items-color);
     font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+
+.properities button:hover {
+    color: hsl(280, 87%, 65%);
 }
 
 .properities p {
@@ -209,6 +223,54 @@ body {
 .min-filter {
     display: none;
 }
+.add-desc , .edit-desc {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--items-bg-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    box-shadow: 1px 1px 65px -11px rgba(0, 0, 0, 0.72);
+    padding-block: 80px;
+    padding-inline: 80px;
+    color: var(--items-color);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.add-desc input , .edit-desc input {
+    border: 1px solid black;
+    padding-block: 10px;
+    padding-inline: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    width: 130%;
+}
+.add-desc button , .edit-desc button {
+    color: white;
+    background-color: hsl(280, 87%, 65%);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+}
+
 
 @media (max-width: 586px) {
     body {
