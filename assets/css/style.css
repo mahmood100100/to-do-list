@@ -59,10 +59,7 @@ body {
     padding: 15px;
     margin-bottom: 25px;
     border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    box-shadow: 1px 1px 65px -11px rgba(0, 0, 0, 0.72);
 }
 
 .add-todo input {
@@ -90,16 +87,9 @@ body {
     width: 22%;
     padding: 10px;
     border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
     cursor: pointer;
     background: linear-gradient(to left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
     -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -ms-transition: 0.5s;
-    -o-transition: 0.5s;
 }
 
 .add-todo button:hover {
@@ -111,10 +101,6 @@ body {
     overflow: hidden;
     background-color: var(--items-bg-color);
     border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
     box-shadow: 1px 1px 65px -11px rgba(0, 0, 0, 0.72);
 }
 
@@ -141,8 +127,9 @@ body {
 
 .task-desc p {
     color: var(--items-color);
-    overflow: hidden;
     margin-inline: 60px;
+    width: 360px;
+    word-wrap: break-word;
 }
 
 .todo-item p input[type="checkbox"] {
@@ -159,17 +146,10 @@ body {
     padding: 5px;
     border-radius: 10px;
     background-color: transparent;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
     cursor: pointer;
     color: hsl(280, 87%, 65%);
     transition: 0.5s;
     -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -ms-transition: 0.5s;
-    -o-transition: 0.5s;
 }
 
 .todo-item .last {
@@ -199,9 +179,6 @@ body {
     cursor: pointer;
     transition: 0.3s;
     -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-    -ms-transition: 0.3s;
-    -o-transition: 0.3s;
 }
 
 .properities button:hover {
@@ -212,7 +189,6 @@ body {
     font-size: 13px;
     color: var(--items-color);
     font-weight: bold;
-
 }
 
 .attribution , .attribution a {
@@ -239,10 +215,6 @@ body {
     padding-inline: 80px;
     color: var(--items-color);
     border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
 }
 .add-desc input , .edit-desc input {
     border: 1px solid black;
@@ -250,11 +222,7 @@ body {
     padding-inline: 5px;
     border-radius: 5px;
     margin-bottom: 20px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    width: 130%;
+    width: 360px;
 }
 .add-desc button , .edit-desc button {
     color: white;
@@ -263,10 +231,6 @@ body {
     cursor: pointer;
     padding: 10px;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
     font-size: medium;
     font-weight: bold;
 }
@@ -295,10 +259,6 @@ body {
         padding: 20px;
         box-shadow: 1px 1px 65px -11px rgba(0, 0, 0, 0.72);
         border-radius: 10px;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -ms-border-radius: 10px;
-        -o-border-radius: 10px;
     }
     .min-filter button {
         background-color: transparent;

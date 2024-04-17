@@ -24,7 +24,7 @@
       </div>
       <div class="add-todo">
         <input type="text" placeholder="Add new item">
-        <button>Add</button>
+        <button onclick="window.onAddDescButtonClicked()">Add</button>
       </div>
 
       <div class="todo-list">
@@ -33,20 +33,18 @@
             <p><span>0</span> items left</p>
           </div>
           <div class="filter">
-            <button>All</button>
-            <button>Active</button>
-            <button>Completed</button>
+            <button onclick="window.onFilterAllButtonClicked()">All</button>
+            <button onclick="window.onFilterCompletedButtonClicked()">Completed</button>
           </div>
           <div class="clear-done">
-            <button>Clear Completed</button>
+            <button onclick="window.onClearCompletedButtonClicked()">Clear Completed</button>
 
           </div>
         </div>
       </div>
       <div class="min-filter">
-        <button>All</button>
-          <button>Active</button>
-          <button>Completed</button>
+        <button onclick="window.onFilterAllButtonClicked()">All</button>
+        <button onclick="window.onFilterCompletedButtonClicked()">Completed</button>
       </div>
     <div class="attribution">
       Challenge by
@@ -58,7 +56,7 @@
     <div class="add-desc">
       <p>Add Description (Optional)</p>
       <input type="text" placeholder="Do you want to add description ? ">
-      <button>Add Item</button>
+      <button onclick="window.onAddButtonClicked()">Add Item</button>
     </div>
     <div class="edit-desc">
       <p>Edit Description</p>

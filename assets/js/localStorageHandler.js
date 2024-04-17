@@ -1,3 +1,4 @@
+
 export const loadTasksFromLocalStorage = () => {
     const tasks = JSON.parse(localStorage.getItem('tasks'));
     if (tasks) {
@@ -23,7 +24,7 @@ export const loadTasksFromLocalStorage = () => {
                     </div>
                 </div>
                 <div class="task-desc">
-                    <p>${task.description}</p>
+                    <p>Description: ${task.description}</p>
                 </div>
             `;
 
@@ -41,20 +42,37 @@ export const loadTasksFromLocalStorage = () => {
     }
 };
 
+export const setTasksInLocalStorage = (newTask, action) => {
 
+    let existingTasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
+    const taskName = newTask.querySelector('.task-name span').textContent;
+    const taskDesc = newTask.querySelector('.task-desc p').textContent.replace("Description:","");
+    const isDone = newTask.querySelector('input[type="checkbox"]').checked;
 
-export const saveTasksToLocalStorage = () => {
-    const todoItems = document.querySelectorAll('.todo-item');
-    const tasks = [];
+    if (action === "save") {
+        existingTasks.push({ name: taskName, description: taskDesc, done: isDone });
+    } else if (action === "delete") {
+        existingTasks = existingTasks.filter(task => (
+            task.name !== taskName || task.description !== taskDesc || task.done !== isDone
+        ));
+    } else if(action === "modify") {
+        existingTasks = existingTasks.map((task) => {
+            if (task.name === taskName) {
+                return { name: taskName, description: taskDesc, done: isDone };
+            } else {
+                return task;
+            }
+        });
+    }
 
-    todoItems.forEach(todoItem => {
-        const taskName = todoItem.querySelector('.task-name span').textContent;
-        const taskDesc = todoItem.querySelector('.task-desc p').textContent;
-        const isDone = todoItem.querySelector('input[type="checkbox"]').checked;
-
-        tasks.push({ name: taskName, description: taskDesc, done: isDone });
-    });
-
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem('tasks', JSON.stringify(existingTasks));
 };
+
+export const setDataInLocalStorage = (key , data) => {
+  return localStorage.setItem(key, JSON.stringify(data));
+}
+
+export const getDataFromLocalStorage = (key) => {
+    return JSON.parse(localStorage.getItem(key));
+  }

@@ -1,4 +1,4 @@
-import { saveTasksToLocalStorage } from "./localStorageHandler.js";
+import { setTasksInLocalStorage } from "./localStorageHandler.js";
 export const editHandler = () => {
 
     document.body.addEventListener("click", (event) => {
@@ -14,13 +14,13 @@ export const editHandler = () => {
             const todoItem = button.closest(".todo-item");
             const descText = todoItem.querySelector(".task-desc p");
             const editDescInput = document.querySelector(".edit-desc input");
-            editDescInput.value = descText.textContent.replace("description :", "");
+            editDescInput.value = descText.textContent.replace("Description:", "");
             document.querySelector(".edit-desc").style.display = "flex";
             const editDescButton = document.querySelector(".edit-desc button");
             editDescButton.addEventListener("click", () => {
-                descText.textContent = `description : ${editDescInput.value}`;
+                descText.textContent = `Description: ${editDescInput.value}`;
                 document.querySelector(".edit-desc").style.display = "none";
-                saveTasksToLocalStorage()
+                setTasksInLocalStorage(todoItem , "modify")
             });
         });
 

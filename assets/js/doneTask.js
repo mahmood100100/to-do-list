@@ -1,15 +1,12 @@
-import { saveTasksToLocalStorage } from "./localStorageHandler.js";
-
+import { setTasksInLocalStorage } from "./localStorageHandler.js";
+import { updateItemsLeft } from "./main.js";
 export const doneHandler = () => {
     const checkboxes = document.querySelectorAll(".todo-item input[type='checkbox']");
-    const itemsLeftSpan = document.querySelector('.items-remaining span');
 
     checkboxes.forEach((checkbox) => {
         checkbox.addEventListener("change", () => {
-            const uncheckedCheckboxes = document.querySelectorAll(".todo-item input[type='checkbox']:not(:checked)");
-            const itemsLeft = uncheckedCheckboxes.length;
-            itemsLeftSpan.textContent = itemsLeft.toString();
-
+            
+            updateItemsLeft()
             const todoItem = checkbox.closest(".todo-item");
             const todoText = todoItem.querySelector(".task-name span");
             const descText = todoItem.querySelector(".task-desc p");
@@ -24,7 +21,7 @@ export const doneHandler = () => {
                 descText.style.textDecoration = "none";
                 descText.style.color = "var(--items-color)";
             }
-            saveTasksToLocalStorage();
+            setTasksInLocalStorage(todoItem , "modify");
         });
     });
 };

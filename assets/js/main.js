@@ -1,27 +1,41 @@
 import themeHandler from "./theme.js";
-import {addHandler} from "./addHandler.js";
+import {addHandler , checkEmptyAndDuplicate} from "./addHandler.js";
 import {doneHandler} from "./doneTask.js";
 import {deleteHandler , deleteCompletedHandler} from "./deleteHandler.js";
 import {editHandler} from "./editHandler.js";
 import { loadTasksFromLocalStorage } from "./localStorageHandler.js";
-
+import { filterByAll , filterByComplete } from "./filterHandler.js";
 export const updateItemsLeft = () => {
-    const tasks = JSON.parse(localStorage.getItem('tasks'));
-    const itemsLeft = tasks.filter(task => !task.done).length;
     const itemsLeftSpan = document.querySelector('.items-remaining span');
-    itemsLeftSpan.textContent = itemsLeft;
+    const uncheckedCheckboxes = document.querySelectorAll(".todo-item input[type='checkbox']:not(:checked)");
+    const itemsLeft = uncheckedCheckboxes.length;
+    itemsLeftSpan.textContent = itemsLeft.toString();
 };
 
-
 document.addEventListener("DOMContentLoaded", () => {
+    loadTasksFromLocalStorage();
     if(document.querySelector(".todo-list").childElementCount > 1){
-        loadTasksFromLocalStorage();
         deleteHandler();
         doneHandler();
         editHandler();
-        deleteCompletedHandler()
         updateItemsLeft();
     }
     themeHandler();
-    addHandler();
 });
+
+window.onAddDescButtonClicked = () => {
+    checkEmptyAndDuplicate();
+};
+window.onAddButtonClicked = () => {
+    addHandler();
+};
+window.onClearCompletedButtonClicked = () => {
+    deleteCompletedHandler()
+}
+
+window.onFilterAllButtonClicked = () => {
+    filterByAll();
+}
+window.onFilterCompletedButtonClicked = () => {
+    filterByComplete();
+}
