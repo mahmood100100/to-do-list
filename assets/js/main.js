@@ -13,6 +13,7 @@ export const updateItemsLeft = () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+    themeHandler();
     loadTasksFromLocalStorage();
     if(document.querySelector(".todo-list").childElementCount > 1){
         deleteHandler();
@@ -20,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
         editHandler();
         updateItemsLeft();
     }
-    themeHandler();
 });
 
 window.onAddDescButtonClicked = () => {

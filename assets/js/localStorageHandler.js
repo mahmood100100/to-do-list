@@ -47,15 +47,18 @@ export const setTasksInLocalStorage = (newTask, action) => {
     let existingTasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
     const taskName = newTask.querySelector('.task-name span').textContent;
-    const taskDesc = newTask.querySelector('.task-desc p').textContent.replace("Description:","");
+    const taskDesc = newTask.querySelector('.task-desc p').textContent.replace("Description: ","");
     const isDone = newTask.querySelector('input[type="checkbox"]').checked;
 
     if (action === "save") {
         existingTasks.push({ name: taskName, description: taskDesc, done: isDone });
     } else if (action === "delete") {
+        console.log("delete")
         existingTasks = existingTasks.filter(task => (
-            task.name !== taskName || task.description !== taskDesc || task.done !== isDone
+            task.name !== taskName.trim() || task.description.trim() !== taskDesc || task.done !== isDone
         ));
+        console.log(taskName , taskDesc , isDone)
+        console.log(existingTasks)
     } else if(action === "modify") {
         existingTasks = existingTasks.map((task) => {
             if (task.name === taskName) {

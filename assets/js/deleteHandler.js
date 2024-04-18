@@ -7,7 +7,7 @@ export const deleteHandler = () => {
         button.addEventListener("click", () => {
             const todoItem = button.closest(".todo-item");
             todoItem.remove();
-            setTasksInLocalStorage(todoItem , "delete");
+            setTasksInLocalStorage(todoItem ,"delete");
             updateItemsLeft()
         });
     });

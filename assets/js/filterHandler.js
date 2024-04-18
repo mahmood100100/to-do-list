@@ -1,4 +1,4 @@
-import {loadTasksFromLocalStorage } from "./localStorageHandler.js"
+import {loadTasksFromLocalStorage , setTasksInLocalStorage } from "./localStorageHandler.js"
 import { deleteHandler } from "./deleteHandler.js";
 import { doneHandler } from "./doneTask.js";
 import { editHandler } from "./editHandler.js";
@@ -10,9 +10,9 @@ export const filterByAll = () => {
         toDoList.removeChild(listChildren[i]);
     }
     loadTasksFromLocalStorage();
-    deleteHandler();
     doneHandler();
     editHandler();
+    deleteHandler();
     updateItemsLeft();
 }
 

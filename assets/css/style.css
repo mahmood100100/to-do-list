@@ -29,10 +29,11 @@ body {
     font-family: 'Josefin Sans', sans-serif;
     background-color: var(--body-bg-color);
     font-size: 18px;
+    overflow-x: hidden;
 }
 
 .container {
-    max-width: fit-content;
+    max-width: 35%;
 }
 
 .todo-header {
@@ -128,7 +129,6 @@ body {
 .task-desc p {
     color: var(--items-color);
     margin-inline: 60px;
-    width: 360px;
     word-wrap: break-word;
 }
 
@@ -215,6 +215,7 @@ body {
     padding-inline: 80px;
     color: var(--items-color);
     border-radius: 10px;
+    width: 20%;
 }
 .add-desc input , .edit-desc input {
     border: 1px solid black;
@@ -222,7 +223,7 @@ body {
     padding-inline: 5px;
     border-radius: 5px;
     margin-bottom: 20px;
-    width: 360px;
+    width: 100%;
 }
 .add-desc button , .edit-desc button {
     color: white;
@@ -239,6 +240,13 @@ body {
 @media (max-width: 586px) {
     body {
         background-image: var(--body-min-image-theme);
+    }
+
+    .container {
+        min-width: 100%;
+    }
+    .add-desc , .edit-desc {
+        min-width: 50%;
     }
 
     .todo-header {
@@ -272,4 +280,37 @@ body {
         width: 70%;
     }
 
+}
+
+@media (min-width : 586px) and (max-width: 776px) {
+    .container {
+        min-width: 75%;
+    }
+    .add-desc , .edit-desc {
+        min-width: 40%;
+    }
+}
+@media (min-width : 776px) and (max-width: 992px) {
+    .container {
+        min-width: 60%;
+    }
+    .add-desc , .edit-desc {
+        min-width: 30%;
+    }
+}
+@media (min-width : 992px) and (max-width: 1200px) {
+    .container {
+        min-width: 50%;
+    }
+    .add-desc , .edit-desc {
+        min-width: 25%;
+    }
+}
+@media (min-width : 1200px){
+    .container {
+        min-width: 40%;
+    }
+    .add-desc , .edit-desc {
+        min-width: 20%;
+    }
 }
