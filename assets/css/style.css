@@ -33,7 +33,7 @@ body {
 }
 
 .container {
-    max-width: 35%;
+    max-width: 40%;
 }
 
 .todo-header {
@@ -243,10 +243,10 @@ body {
     }
 
     .container {
-        min-width: 100%;
+        min-width: 85%;
     }
     .add-desc , .edit-desc {
-        min-width: 50%;
+        min-width: 40%;
     }
 
     .todo-header {
@@ -281,18 +281,17 @@ body {
     }
 
 }
-
 @media (min-width : 586px) and (max-width: 776px) {
     .container {
-        min-width: 75%;
+        min-width: 70%;
     }
     .add-desc , .edit-desc {
-        min-width: 40%;
+        min-width: 35%;
     }
 }
 @media (min-width : 776px) and (max-width: 992px) {
     .container {
-        min-width: 60%;
+        min-width: 55%;
     }
     .add-desc , .edit-desc {
         min-width: 30%;
@@ -300,17 +299,9 @@ body {
 }
 @media (min-width : 992px) and (max-width: 1200px) {
     .container {
-        min-width: 50%;
+        min-width: 45%;
     }
     .add-desc , .edit-desc {
         min-width: 25%;
-    }
-}
-@media (min-width : 1200px){
-    .container {
-        min-width: 40%;
-    }
-    .add-desc , .edit-desc {
-        min-width: 20%;
     }
 }
