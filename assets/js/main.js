@@ -35,7 +35,11 @@ window.onClearCompletedButtonClicked = () => {
 
 window.onFilterAllButtonClicked = () => {
     filterByAll();
+    document.querySelector(".filter button:last-of-type").style.color = "var(--items-color)"
+    document.querySelector(".filter button:first-of-type").style.color = "hsl(280, 87%, 65%)" 
 }
 window.onFilterCompletedButtonClicked = () => {
     filterByComplete();
+    document.querySelector(".filter button:last-of-type").style.color = "hsl(280, 87%, 65%)"
+    document.querySelector(".filter button:first-of-type").style.color = "var(--items-color)";
 }

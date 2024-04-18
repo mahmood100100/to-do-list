@@ -18,8 +18,13 @@ export const checkEmptyAndDuplicate = () => {
 
     if (addInput.value.trim() !== "" && !isDuplicate) {
         descList.style.display = "flex";
-    } else {
-        alert("The task name should not be null or duplicated");
+    } else if (addInput.value.trim() == "") {
+        alert("The task name must not be empty , add a name for the task");
+    }else if(isDuplicate) {
+        alert("The task name must not be duplicated , choose different task name");
+    }
+    else {
+        alert("unexpected error")
     }
 };
 
