@@ -35,11 +35,23 @@ window.onClearCompletedButtonClicked = () => {
 
 window.onFilterAllButtonClicked = () => {
     filterByAll();
-    document.querySelector(".filter button:last-of-type").style.color = "var(--items-color)"
-    document.querySelector(".filter button:first-of-type").style.color = "hsl(280, 87%, 65%)" 
+    const filterAllButtons = document.querySelectorAll(".filterAll");
+    const filterCompletedButtons = document.querySelectorAll(".filterCompleted");
+    filterAllButtons.forEach((filterAllButton) => {
+        filterAllButton.classList.add("clicked");
+    })
+    filterCompletedButtons.forEach((filterCompletedButton) => {
+        filterCompletedButton.classList.remove("clicked");
+    })
 }
 window.onFilterCompletedButtonClicked = () => {
     filterByComplete();
-    document.querySelector(".filter button:last-of-type").style.color = "hsl(280, 87%, 65%)"
-    document.querySelector(".filter button:first-of-type").style.color = "var(--items-color)";
+    const filterAllButtons = document.querySelectorAll(".filterAll");
+    const filterCompletedButtons = document.querySelectorAll(".filterCompleted");
+    filterAllButtons.forEach((filterAllButton) => {
+        filterAllButton.classList.remove("clicked");
+    })
+    filterCompletedButtons.forEach((filterCompletedButton) => {
+        filterCompletedButton.classList.add("clicked");
+    })
 }

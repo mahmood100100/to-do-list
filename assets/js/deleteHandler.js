@@ -21,5 +21,4 @@ export const deleteCompletedHandler = () => {
             todoList.removeChild(todoItem);
             setTasksInLocalStorage(todoItem , "delete");
         })
-        updateItemsLeft();
 };

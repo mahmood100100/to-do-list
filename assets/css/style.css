@@ -164,6 +164,10 @@ body {
     color: hsl(120, 87%, 65%)
 }
 
+.clicked {
+    color: hsl(280, 87%, 65%) !important;
+}
+
 .properities {
     display: flex;
     justify-content: space-between;

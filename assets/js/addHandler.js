@@ -3,11 +3,11 @@ import { doneHandler } from "./doneTask.js";
 import { deleteHandler, deleteCompletedHandler } from "./deleteHandler.js";
 import { editHandler } from "./editHandler.js";
 import { updateItemsLeft } from "./main.js";
-
+import { filterByAll } from "./filterHandler.js";
 export const checkEmptyAndDuplicate = () => {
     const addInput = document.querySelector(".add-todo input");
     const descList = document.querySelector(".add-desc");
-    
+
     let isDuplicate = false;
     const todoItemNames = document.querySelectorAll(".todo-item span");
     todoItemNames.forEach((todoItem) => {
@@ -20,7 +20,7 @@ export const checkEmptyAndDuplicate = () => {
         descList.style.display = "flex";
     } else if (addInput.value.trim() == "") {
         alert("The task name must not be empty , add a name for the task");
-    }else if(isDuplicate) {
+    } else if (isDuplicate) {
         alert("The task name must not be duplicated , choose different task name");
     }
     else {
@@ -63,17 +63,30 @@ export const addHandler = () => {
             <p>Description: ${addDescInput.value}</p>
         </div> 
     `;
-
-    const lastTodoItem = toDoList.lastElementChild;
-    lastTodoItem.insertAdjacentElement('beforebegin', listItem);
-    
     addInput.value = "";
     addDescInput.value = "";
     descList.style.display = "none";
-    deleteHandler();
-    editHandler();
-    doneHandler();
-    setTasksInLocalStorage(listItem , "save");
-    deleteCompletedHandler();
-    updateItemsLeft();
+    setTasksInLocalStorage(listItem, "save");
+
+    let isFilterButtonClicked = false;
+    const filterButtons = document.querySelectorAll(".filter button , .min-filter button");
+    filterButtons.forEach((button) => {
+        if (button.classList.contains("clicked")) {
+            isFilterButtonClicked = true;
+            button.classList.remove("clicked");
+        }
+    })
+
+    if (isFilterButtonClicked) {
+        filterByAll();
+    }
+    else {
+        const lastTodoItem = toDoList.lastElementChild;
+        lastTodoItem.insertAdjacentElement('beforebegin', listItem);
+        deleteHandler();
+        editHandler();
+        doneHandler();
+        deleteCompletedHandler();
+        updateItemsLeft();
+    }
 };
