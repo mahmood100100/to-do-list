@@ -1,23 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+:root {
+    --body-bg-color : hsl(0, 0%, 98%);
+    --items-bg-color : white;
+    --items-color : hsl(233, 14%, 35%);
+    --body-image-theme :url(../../images/bg-desktop-light.jpg);
+    --body-min-image-theme :url(../../images/bg-mobile-light.jpg);
+}
+
+.dark-theme {
+    --body-bg-color: hsl(235, 21%, 11%);
+    --items-bg-color: hsl(235, 24%, 19%);
+    --items-color: hsl(234, 39%, 85%);
+    --body-image-theme: url(../../images/bg-desktop-dark.jpg);
+    --body-min-image-theme: url(../../images/bg-mobile-dark.jpg);
+}
 
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url(../../images/bg-desktop-light.jpg);
+    background-image: var(--body-image-theme);
     background-size: 100% 40vh;
     background-position: center top;
     background-repeat: no-repeat;
     background-attachment: fixed;
     align-items: center;
     font-family: 'Josefin Sans', sans-serif;
-    background-color: hsl(0, 0%, 98%);
+    background-color: var(--body-bg-color);
     font-size: 18px;
+    overflow-x: hidden;
 }
 
 .container {
-    max-width: fit-content;
+    max-width: 40%;
 }
 
 .todo-header {
@@ -40,21 +56,24 @@ body {
 }
 
 .add-todo {
-    background-color: white;
+    background-color: var(--items-bg-color);
     padding: 15px;
     margin-bottom: 25px;
     border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    box-shadow: 1px 1px 65px -11px rgba(0, 0, 0, 0.72);
 }
 
 .add-todo input {
     border: none;
     width: 75%;
     height: 100%;
-    font-size: large;
+    font-size: medium;
+    background-color: var(--items-bg-color);
+    color: var(--items-color);
+
+}
+.add-todo input::placeholder {
+    color: var(--items-color);
 }
 
 .add-todo input:focus {
@@ -69,16 +88,9 @@ body {
     width: 22%;
     padding: 10px;
     border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
     cursor: pointer;
     background: linear-gradient(to left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
     -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -ms-transition: 0.5s;
-    -o-transition: 0.5s;
 }
 
 .add-todo button:hover {
@@ -88,33 +100,36 @@ body {
 
 .todo-list {
     overflow: hidden;
-    background-color: white;
+    background-color: var(--items-bg-color);
     border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
     box-shadow: 1px 1px 65px -11px rgba(0, 0, 0, 0.72);
 }
 
 .todo-item {
+    background-color: var(--items-bg-color);
+    padding-block: 20px;
+    border-bottom: 1px solid var(--items-color);
+}
+.todo-item .task-name {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    padding-block: 20px;
-    border-bottom: 1px solid black;
 }
 
-.todo-item p {
+.todo-item .task-name p {
     display: flex;
-    justify-content: center;
     align-items: center;
     border: none;
     height: 100%;
     font-size: large;
     margin: 0;
     margin-left: 20px;
+    color: var(--items-color);
+}
+
+.task-desc p {
+    color: var(--items-color);
+    margin-inline: 60px;
+    word-wrap: break-word;
 }
 
 .todo-item p input[type="checkbox"] {
@@ -126,22 +141,15 @@ body {
 
 .todo-item button {
     border: none;
-    color: white;
+    color: var(--items-color);
     font-size: large;
     padding: 5px;
     border-radius: 10px;
     background-color: transparent;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
     cursor: pointer;
     color: hsl(280, 87%, 65%);
     transition: 0.5s;
     -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -ms-transition: 0.5s;
-    -o-transition: 0.5s;
 }
 
 .todo-item .last {
@@ -156,6 +164,10 @@ body {
     color: hsl(120, 87%, 65%)
 }
 
+.clicked {
+    color: hsl(280, 87%, 65%) !important;
+}
+
 .properities {
     display: flex;
     justify-content: space-between;
@@ -166,29 +178,79 @@ body {
 .properities button {
     border: none;
     background-color: transparent;
-    color: hsl(233, 14%, 35%);
+    color: var(--items-color);
     font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+}
+
+.properities button:hover {
+    color: hsl(280, 87%, 65%);
 }
 
 .properities p {
     font-size: 13px;
-    color: hsl(233, 14%, 35%);
+    color: var(--items-color);
     font-weight: bold;
-
 }
 
-.attribution {
+.attribution , .attribution a {
     margin-top: 50px;
+    color: var(--items-color);
 }
 
 .min-filter {
     display: none;
 }
+.add-desc , .edit-desc {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--items-bg-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    box-shadow: 1px 1px 65px -11px rgba(0, 0, 0, 0.72);
+    padding-block: 80px;
+    padding-inline: 80px;
+    color: var(--items-color);
+    border-radius: 10px;
+    width: 20%;
+}
+.add-desc input , .edit-desc input {
+    border: 1px solid black;
+    padding-block: 10px;
+    padding-inline: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.add-desc button , .edit-desc button {
+    color: white;
+    background-color: hsl(280, 87%, 65%);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+}
+
 
 @media (max-width: 586px) {
     body {
-        background-image: url(../../images/bg-mobile-light.jpg);
+        background-image: var(--body-min-image-theme);
+    }
+
+    .container {
+        min-width: 85%;
+    }
+    .add-desc , .edit-desc {
+        min-width: 40%;
     }
 
     .todo-header {
@@ -205,25 +267,45 @@ body {
         justify-content: center;
         align-items: center;
         margin-top: 30px;
-        background-color: white;
+        background-color: var(--items-bg-color);
         padding: 20px;
         box-shadow: 1px 1px 65px -11px rgba(0, 0, 0, 0.72);
         border-radius: 10px;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -ms-border-radius: 10px;
-        -o-border-radius: 10px;
     }
     .min-filter button {
         background-color: transparent;
         border: none;
         cursor: pointer;
         font-weight: bold;
-        color: hsl(233, 14%, 35%);
+        color: var(--items-color);
 
     }
     .add-todo input {
         width: 70%;
     }
 
+}
+@media (min-width : 586px) and (max-width: 776px) {
+    .container {
+        min-width: 70%;
+    }
+    .add-desc , .edit-desc {
+        min-width: 35%;
+    }
+}
+@media (min-width : 776px) and (max-width: 992px) {
+    .container {
+        min-width: 55%;
+    }
+    .add-desc , .edit-desc {
+        min-width: 30%;
+    }
+}
+@media (min-width : 992px) and (max-width: 1200px) {
+    .container {
+        min-width: 45%;
+    }
+    .add-desc , .edit-desc {
+        min-width: 25%;
+    }
 }
